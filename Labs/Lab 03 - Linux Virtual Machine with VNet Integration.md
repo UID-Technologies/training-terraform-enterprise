@@ -57,6 +57,12 @@ Default size `Standard_B1s` is low cost; still **run destroy** when finished.
 ssh-keygen -t ed25519 -f $env:USERPROFILE\.ssh\id_ed25519_azure_lab -C "azure-lab"
 ```
 
+or
+
+```bash
+ssh-keygen -t rsa -b 4096 -f "$env:USERPROFILE\.ssh\azure_terraform_rsa"
+```
+
 Note the path to the **`.pub`** file.
 
 ### Step 2 — Create Terraform files

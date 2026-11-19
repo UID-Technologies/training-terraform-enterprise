@@ -525,8 +525,10 @@ IAM roles and profiles are removed when destroy completes (no dependencies from 
 
 You built on AWS:
 
-1. **Lab 08** — VPC, subnets, IGW, routes, SG (`dynamic`, `for_each`, `count`), EIPs  
-2. **Lab 08** — EC2 with SG and Elastic IP  
+1. **Lab 06** — VPC, subnets, IGW, routes, SG (`dynamic`, `for_each`, `count`), EIPs  
+2. **Lab 07** — EC2 with SG and Elastic IP  
 3. **Lab 08** — IAM roles and instance profiles for secure AWS API access  
 
-**Next ideas:** NAT gateway module, Auto Scaling, ALB, remote state in S3 + DynamoDB lock.
+## Next lab
+
+[Lab 09 — Terraform Modules](./Lab%2009%20-%20Terraform%20Modules%20Local%20Registry%20Versioning%20and%20Design.md): local modules, registry modules, versioning, private modules, and design standards.

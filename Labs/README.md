@@ -1,6 +1,6 @@
 # Cloud Infrastructure with Terraform — Hands-On Labs
 
-Step-by-step exercises for **Azure** (Labs 01–05) and **AWS** (Labs 06–08) with [Terraform](https://www.terraform.io/).
+Step-by-step exercises for **Azure** (Labs 01–05), **AWS** (Labs 06–10), **modules** (Lab 09), **remote state** (Lab 10), **Git integration** (Lab 11), **enterprise practices** (Lab 12), **HCP Terraform workspaces** (Lab 13), and **remote execution** (Lab 14) with [Terraform](https://www.terraform.io/).
 
 ## How to use these labs
 
@@ -21,8 +21,14 @@ Step-by-step exercises for **Azure** (Labs 01–05) and **AWS** (Labs 06–08) w
 | 06 | [Lab 06 - VPC, Subnets, Internet Gateway, Route Tables, Security Groups, Elastic IP (AWS)](./Lab%2006%20-%20VPC,%20Subnets,%20Internet%20Gateway,%20Route%20Tables,%20Security%20Groups,%20Elastic%20IP%20(AWS).md) | AWS | VPC, IGW, routes, SG, EIP | 90–120 min |
 | 07 | [Lab 07 - EC2 Instance with VPC, Security Group, and Elastic IP (AWS)](./Lab%2007%20-%20EC2%20Instance%20with%20VPC,%20Security%20Group,%20and%20Elastic%20IP%20(AWS).md) | AWS | EC2, EIP | 90–120 min |
 | 08 | [Lab 08 - IAM Roles, Instance Profile, and EC2 (AWS)](./Lab%2008%20-%20IAM%20Roles,%20Instance%20Profile,%20and%20EC2%20(AWS).md) | AWS | IAM role, SSM-ready EC2 | 90–120 min |
+| 09 | [Lab 09 - Terraform Modules Local Registry Versioning and Design](./Lab%2009%20-%20Terraform%20Modules%20Local%20Registry%20Versioning%20and%20Design.md) | AWS / Terraform | Local & registry modules, versioning, design standards | 90–120 min |
+| 10 | [Lab 10 - Remote State with S3 Backend (AWS)](./Lab%2010%20-%20Remote%20State%20with%20S3%20Backend%20(AWS).md) | AWS | S3 backend, DynamoDB locking, state migration | 90–120 min |
+| 11 | [Lab 11 - Git Integration Branching Pull Requests and Versioning](./Lab%2011%20-%20Git%20Integration%20Branching%20Pull%20Requests%20and%20Versioning.md) | Git / Terraform | Branching, PRs, repo layout, semver tags | 60–90 min |
+| 12 | [Lab 12 - Enterprise Best Practices AWS Modules and Multi Environment](./Lab%2012%20-%20Enterprise%20Best%20Practices%20AWS%20Modules%20and%20Multi%20Environment.md) | AWS | Folder structure, naming/tags, SSM secrets, Dev–Production modules | 120–150 min |
+| 13 | [Lab 13 - HCP Terraform Workspaces Variables and Variable Sets](./Lab%2013%20-%20HCP%20Terraform%20Workspaces%20Variables%20and%20Variable%20Sets.md) | HCP / AWS | Workspace architecture, variables, variable sets, sensitive & env vars | 90–120 min |
+| 14 | [Lab 14 - HCP Terraform Remote Execution Plans Approval and Cost](./Lab%2014%20-%20HCP%20Terraform%20Remote%20Execution%20Plans%20Approval%20and%20Cost.md) | HCP / AWS | Remote runs, speculative plans, apply approval, cost estimate, run history | 90–120 min |
 
-Complete **Labs 01–05 (Azure)** before starting **AWS Labs 06–08** (or have equivalent Terraform experience).
+Complete **Labs 01–05 (Azure)** before **AWS Labs 06–10**. **Labs 09–14** build on Terraform workflow through enterprise and HCP operations.
 
 ## Global prerequisites
 
@@ -41,6 +47,35 @@ Complete **Labs 01–05 (Azure)** before starting **AWS Labs 06–08** (or have 
 - AWS account; [AWS CLI v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) (`aws sts get-caller-identity`)
 - Credentials via `aws configure` or `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY`
 - Default region: `us-east-1`
+
+**Labs 09–10 (AWS)**
+
+- AWS credentials; **`aws sts get-caller-identity`**  
+- Lab 09: S3 create/delete; Terraform Registry access  
+- Lab 10: S3 state bucket + DynamoDB table + `terraform init -migrate-state`
+
+**Lab 11 (Git)**
+
+- **Git** installed; optional **GitHub** account and **`gh`** CLI for a live pull request  
+- Lab 11 uses `terraform validate` only unless you optionally apply from `environments/dev`
+
+**Lab 12 (Enterprise AWS)**
+
+- AWS credentials; S3 and SSM Parameter Store access  
+- Apply in **`environments/dev`** only; **`plan`** in qa, uat, production  
+- Optional: S3 remote backend from Lab 10 (one state key per environment)
+
+**Lab 13 (HCP Terraform)**
+
+- Free [HCP Terraform](https://app.terraform.io) organization; **`terraform login`**  
+- AWS credentials configured as **workspace environment variables** for remote runs  
+- S3 create/delete in workspace **`northwind-audit-dev`**
+
+**Lab 14 (Remote execution)**
+
+- Same HCP org as Lab 13; workspace **`northwind-audit-execution`** (or reuse dev workspace)  
+- **Manual apply** enabled; optional **GitHub VCS** for speculative plans  
+- Optional org **cost estimation** (admin)
 
 ## Conventions
 

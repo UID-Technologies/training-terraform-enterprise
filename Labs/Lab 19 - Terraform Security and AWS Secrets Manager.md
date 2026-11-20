@@ -457,6 +457,10 @@ Remove `labs/work/lab-19/` locally.
 
 [Lab 18 — Terraform CI/CD with GitHub Actions and Terrakube](./Lab%2018%20-%20Terraform%20CI%20CD%20with%20GitHub%20Actions%20and%20Terrakube.md).
 
+## Next lab
+
+[Lab 20 — Terrakube Private Module Registry and AWS S3](./Lab%2020%20-%20Terrakube%20Private%20Module%20Registry%20and%20AWS%20S3%20Bucket.md): publish `s3-private-bucket`, workspace AWS env vars, remote apply.
+
 ## Reference documentation
 
 - [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)  

@@ -1,6 +1,6 @@
 # Cloud Infrastructure with Terraform — Hands-On Labs
 
-Step-by-step exercises for **Azure** (Labs 01–05), **AWS** (Labs 06–10), **modules** (Lab 09), **remote state** (Lab 10), **Git integration** (Lab 11), **enterprise practices** (Lab 12), **HCP Terraform** (Labs 13–14), **Terrakube** (Labs 15–17), **GitHub Actions CI/CD** (Lab 18), and **secrets security** (Lab 19) with [Terraform](https://www.terraform.io/).
+Step-by-step exercises for **Azure** (Labs 01–05), **AWS** (Labs 06–10), **modules** (Lab 09), **remote state** (Lab 10), **Git integration** (Lab 11), **enterprise practices** (Lab 12), **HCP Terraform** (Labs 13–14), **Terrakube** (Labs 15–17), **GitHub Actions CI/CD** (Lab 18), **secrets security** (Lab 19), and **Terrakube private registry + S3** (Lab 20) with [Terraform](https://www.terraform.io/).
 
 ## How to use these labs
 
@@ -32,8 +32,9 @@ Step-by-step exercises for **Azure** (Labs 01–05), **AWS** (Labs 06–10), **m
 | 17 | [Lab 17 - Terrakube Workspaces and Remote Terraform Execution](./Lab%2017%20-%20Terrakube%20Workspaces%20and%20Remote%20Terraform%20Execution.md) | Terrakube | Workspaces, variables, remote plan/apply, dual env state | 60–90 min |
 | 18 | [Lab 18 - Terraform CI CD with GitHub Actions and Terrakube](./Lab%2018%20-%20Terraform%20CI%20CD%20with%20GitHub%20Actions%20and%20Terrakube.md) | GitHub / Terrakube | Actions CI, env approvals, Terrakube authoritative apply | 2.5–3 hr |
 | 19 | [Lab 19 - Terraform Security and AWS Secrets Manager](./Lab%2019%20-%20Terraform%20Security%20and%20AWS%20Secrets%20Manager.md) | AWS | Secrets Manager, IAM, state security, optional Actions OIDC | 90–120 min |
+| 20 | [Lab 20 - Terrakube Private Module Registry and AWS S3 Bucket](./Lab%2020%20-%20Terrakube%20Private%20Module%20Registry%20and%20AWS%20S3%20Bucket.md) | Terrakube / AWS | Private registry module, workspace, AWS creds in env vars, S3 apply | 120–150 min |
 
-Complete **Labs 01–05 (Azure)** before **AWS Labs 06–10**. **Labs 09–19** build through enterprise workflow, HCP, Terrakube, CI/CD, and security.
+Complete **Labs 01–05 (Azure)** before **AWS Labs 06–10**. **Labs 09–20** build through enterprise workflow, HCP, Terrakube, CI/CD, security, and private modules on AWS.
 
 ## Global prerequisites
 
@@ -111,6 +112,12 @@ Complete **Labs 01–05 (Azure)** before **AWS Labs 06–10**. **Labs 09–19** 
 - AWS credentials; **`secretsmanager`**, **`iam:CreatePolicy`**  
 - Unique **`lab_suffix`**; region **`us-east-1`** (course default)  
 - Optional: GitHub OIDC role for **DescribeSecret** workflow
+
+**Lab 20 (Terrakube registry + S3)**
+
+- **Labs 15–16** Terrakube + GitHub VCS; **Lab 09** module patterns  
+- IAM user keys only in Terrakube workspace **environment variables** (sensitive)  
+- S3 create/delete; private module tag **`v1.0.0`** on GitHub
 
 ## Conventions
 

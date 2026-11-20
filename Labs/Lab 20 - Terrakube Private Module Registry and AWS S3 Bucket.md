@@ -233,8 +233,8 @@ git init
 git add .
 git commit -m "Add s3-private-bucket module"
 git branch
-git remote add origin https://github.com/YOUR-USERNAME/terrakube-aws-s3-platform.git
-git push origin main
+git remote add origin <github_url>
+git push origin master
 ```
 
 ### Step 5 — Publish module to Terrakube private registry

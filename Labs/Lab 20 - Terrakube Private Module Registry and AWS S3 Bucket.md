@@ -230,11 +230,11 @@ Commit and push **module only** first:
 
 ```powershell
 git init
-git add modules .gitignore
+git add .
 git commit -m "Add s3-private-bucket module"
-git branch -M main
+git branch
 git remote add origin https://github.com/YOUR-USERNAME/terrakube-aws-s3-platform.git
-git push -u origin main
+git push origin main
 ```
 
 ### Step 5 — Publish module to Terrakube private registry

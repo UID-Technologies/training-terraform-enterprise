@@ -452,6 +452,6 @@ Remove `labs/work/lab-14/` locally.
 
 [Lab 13 — HCP Terraform Workspaces](./Lab%2013%20-%20HCP%20Terraform%20Workspaces%20Variables%20and%20Variable%20Sets.md).
 
-## Course wrap-up
+## Next lab
 
-You completed **fourteen labs**: Azure and AWS foundations, **modules**, **S3 remote state**, **Git** workflow, **enterprise** layout, **HCP workspaces** (variables and variable sets), and **remote execution** (plans, approvals, cost, history). Together this matches a common enterprise pattern: reusable modules in Git, environment isolation, remote state, VCS-driven review, and gated applies.
+[Lab 15 — Install and Configure Terrakube](./Lab%2015%20-%20Install%20and%20Configure%20Terrakube%20for%20Terraform%20Automation.md): self-hosted Terraform automation on Minikube with Helm, HTTPS, workspaces, and Git-driven runs.

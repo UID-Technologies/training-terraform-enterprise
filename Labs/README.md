@@ -1,6 +1,6 @@
 # Cloud Infrastructure with Terraform — Hands-On Labs
 
-Step-by-step exercises for **Azure** (Labs 01–05), **AWS** (Labs 06–10), **modules** (Lab 09), **remote state** (Lab 10), **Git integration** (Lab 11), **enterprise practices** (Lab 12), **HCP Terraform workspaces** (Lab 13), and **remote execution** (Lab 14) with [Terraform](https://www.terraform.io/).
+Step-by-step exercises for **Azure** (Labs 01–05), **AWS** (Labs 06–10), **modules** (Lab 09), **remote state** (Lab 10), **Git integration** (Lab 11), **enterprise practices** (Lab 12), **HCP Terraform** (Labs 13–14), **Terrakube** (Labs 15–17), **GitHub Actions CI/CD** (Lab 18), and **secrets security** (Lab 19) with [Terraform](https://www.terraform.io/).
 
 ## How to use these labs
 
@@ -27,8 +27,13 @@ Step-by-step exercises for **Azure** (Labs 01–05), **AWS** (Labs 06–10), **m
 | 12 | [Lab 12 - Enterprise Best Practices AWS Modules and Multi Environment](./Lab%2012%20-%20Enterprise%20Best%20Practices%20AWS%20Modules%20and%20Multi%20Environment.md) | AWS | Folder structure, naming/tags, SSM secrets, Dev–Production modules | 120–150 min |
 | 13 | [Lab 13 - HCP Terraform Workspaces Variables and Variable Sets](./Lab%2013%20-%20HCP%20Terraform%20Workspaces%20Variables%20and%20Variable%20Sets.md) | HCP / AWS | Workspace architecture, variables, variable sets, sensitive & env vars | 90–120 min |
 | 14 | [Lab 14 - HCP Terraform Remote Execution Plans Approval and Cost](./Lab%2014%20-%20HCP%20Terraform%20Remote%20Execution%20Plans%20Approval%20and%20Cost.md) | HCP / AWS | Remote runs, speculative plans, apply approval, cost estimate, run history | 90–120 min |
+| 15 | [Lab 15 - Install and Configure Terrakube for Terraform Automation](./Lab%2015%20-%20Install%20and%20Configure%20Terrakube%20for%20Terraform%20Automation.md) | Kubernetes / Terrakube | Minikube, Helm, HTTPS, workspaces, remote Terraform | 3–4 hr |
+| 16 | [Lab 16 - Connect Terrakube with GitHub](./Lab%2016%20-%20Connect%20Terrakube%20with%20GitHub.md) | Terrakube / GitHub | VCS workflow, OAuth, SSH, plan/apply from Git | 90–120 min |
+| 17 | [Lab 17 - Terrakube Workspaces and Remote Terraform Execution](./Lab%2017%20-%20Terrakube%20Workspaces%20and%20Remote%20Terraform%20Execution.md) | Terrakube | Workspaces, variables, remote plan/apply, dual env state | 60–90 min |
+| 18 | [Lab 18 - Terraform CI CD with GitHub Actions and Terrakube](./Lab%2018%20-%20Terraform%20CI%20CD%20with%20GitHub%20Actions%20and%20Terrakube.md) | GitHub / Terrakube | Actions CI, env approvals, Terrakube authoritative apply | 2.5–3 hr |
+| 19 | [Lab 19 - Terraform Security and AWS Secrets Manager](./Lab%2019%20-%20Terraform%20Security%20and%20AWS%20Secrets%20Manager.md) | AWS | Secrets Manager, IAM, state security, optional Actions OIDC | 90–120 min |
 
-Complete **Labs 01–05 (Azure)** before **AWS Labs 06–10**. **Labs 09–14** build on Terraform workflow through enterprise and HCP operations.
+Complete **Labs 01–05 (Azure)** before **AWS Labs 06–10**. **Labs 09–19** build through enterprise workflow, HCP, Terrakube, CI/CD, and security.
 
 ## Global prerequisites
 
@@ -76,6 +81,36 @@ Complete **Labs 01–05 (Azure)** before **AWS Labs 06–10**. **Labs 09–14** 
 - Same HCP org as Lab 13; workspace **`northwind-audit-execution`** (or reuse dev workspace)  
 - **Manual apply** enabled; optional **GitHub VCS** for speculative plans  
 - Optional org **cost estimation** (admin)
+
+**Lab 15 (Terrakube)**
+
+- Windows 11, **Docker Desktop**, **Minikube**, **kubectl**, **Helm**, **mkcert**  
+- **16 GB RAM** recommended; no cloud subscription (uses `random` provider)  
+- Official [Minikube + HTTPS](https://docs.terrakube.io/getting-started/deployment/minikube-+-https) `values.yaml` required
+
+**Lab 16 (Terrakube + GitHub)**
+
+- Completed **Lab 15**; Terrakube UI reachable  
+- GitHub account; optional **OAuth app** for VCS provider integration  
+- **Manual** Terrakube runs on Minikube; webhooks require a public API endpoint (conceptual)
+
+**Lab 17 (Terrakube workspaces)**
+
+- Completed **Labs 15–16**; GitHub VCS working  
+- Repo **`terrakube-remote-execution`**; workspaces **`demo-development`** and **`demo-production`**  
+- **No local `terraform apply`**—remote executor only for plan/apply state
+
+**Lab 18 (GitHub Actions + Terrakube)**
+
+- GitHub repo **`terraform-github-actions-lab`**; Actions enabled  
+- Completed **Labs 15–17**; workspace **`github-actions-development`**  
+- Understand **stateless** Actions plan vs **Terrakube** remote state
+
+**Lab 19 (Secrets Manager)**
+
+- AWS credentials; **`secretsmanager`**, **`iam:CreatePolicy`**  
+- Unique **`lab_suffix`**; region **`us-east-1`** (course default)  
+- Optional: GitHub OIDC role for **DescribeSecret** workflow
 
 ## Conventions
 
